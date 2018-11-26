@@ -10,6 +10,7 @@ We wrote passing tests for all the legacy code, then proceded to refactor and re
 
 ```
 $ git clone git@github.com:jdm79/gilded-rose-ruby.git
+$ cd gilded-rose-ruby
 $ bundle 
 ```
 
