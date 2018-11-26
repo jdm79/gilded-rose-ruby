@@ -22,7 +22,30 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].sell_in).to eq(9)
     end
+    it "reduces sellin date of aged brie by 1 daily" do
+      items = [Item.new(name="Aged Brie", sell_in=2, quality=0)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq(1)
+    end
+    it "keeps sellin date of hand rag the same" do
+      items = [Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=0, quality=80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq(0)
+    end
+    it "keeps sellin date of hand rag the same (-1)" do
+      items = [Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=-1, quality=80)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq(-1)
+    end
+    it "reduces sellin date of backstage pass by 1 daily" do
+      items = [Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=15, quality=20)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq(14)
+    end
+    it "reduces conjured sellin date by 1 daily" do
+      items = [Item.new(name="Conjured Mana Cake", sell_in=3, quality=6)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].sell_in).to eq(2)
+    end
   end
-
-
 end
