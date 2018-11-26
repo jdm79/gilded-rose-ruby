@@ -19,6 +19,9 @@ class GildedRose
       end
       item.sell_in = item.sell_in - sellinUpdater
       item.quality = item.quality - qualityUpdater
+
+      sellinUpdater = 1
+      qualityUpdater = 1
     end
   end
 
