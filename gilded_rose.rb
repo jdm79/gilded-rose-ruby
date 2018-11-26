@@ -4,24 +4,28 @@ class GildedRose
     @items = items
   end
 
-  def update_quality( qualityUpdater = 1)
+  def update_quality( sellinUpdater = 1, qualityUpdater = 1)
     @items.each do |item|
       case item.name
-        when 'Sulfuras, Hand of Ragnaros' 
+        when 'Sulfuras, Hand of Ragnaros'
+          sellinUpdater = 0
           qualityUpdater = 0
         when 'Aged Brie'
-          qualityUpdater = -1
+          item.quality == 50 ? qualityUpdater = 0 : qualityUpdater = -1
         when 'Backstage passes to a TAFKAL80ETC concert'
-          qualityUpdater = concertQualityUpdater(item)
+          qualityUpdater = concert_quality_updater(item)
+        when 'Conjured Mana Cake'
+          qualityUpdater = 2
       end
-      item.sell_in = item.sell_in - 1
+      item.sell_in = item.sell_in - sellinUpdater
       item.quality = item.quality - qualityUpdater
     end
   end
 
-  def concertQualityUpdater(item)
+  def concert_quality_updater(item)
     item.sell_in < 11 ? (item.sell_in < 6 ? -3 : -2) : -1
   end
+
 end
 
 class Item

@@ -88,7 +88,7 @@ describe GildedRose do
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq(23)
       end
-      it "hand of rag quality stays the same" do
+      it "conjured item reduces by 2 daily" do
         items = [Item.new(name="Conjured Mana Cake", sell_in=3, quality=6)]
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq(4)
