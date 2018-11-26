@@ -9,6 +9,8 @@ class GildedRose
       case item.name
         when 'Sulfuras, Hand of Ragnaros' 
           qualityUpdater = 0
+        when 'Aged Brie'
+          qualityUpdater = -1
       end
       item.sell_in = item.sell_in - 1
       item.quality = item.quality - qualityUpdater
