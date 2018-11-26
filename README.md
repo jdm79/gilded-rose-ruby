@@ -1,6 +1,6 @@
 # The Gilded Rose (in Ruby)
 
-I did this with [Jimmy Sutherland](https://github.com/londonJim). We refactored the extremely nested code.
+I did this with [Jimmy Sutherland](https://github.com/londonJim). We refactored the extremely nested code which can be found in the start code [here](https://github.com/emilybache/GildedRose-Refactoring-Kata).
 
 # How?
 
