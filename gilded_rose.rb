@@ -11,10 +11,16 @@ class GildedRose
           qualityUpdater = 0
         when 'Aged Brie'
           qualityUpdater = -1
+        when 'Backstage passes to a TAFKAL80ETC concert'
+          qualityUpdater = concertQualityUpdater(item)
       end
       item.sell_in = item.sell_in - 1
       item.quality = item.quality - qualityUpdater
-    end   
+    end
+  end
+
+  def concertQualityUpdater(item)
+    item.sell_in < 11 ? (item.sell_in < 6 ? -3 : -2) : -1
   end
 end
 
